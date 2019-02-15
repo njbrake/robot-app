@@ -73,7 +73,7 @@ class Controls extends Component {
 
 					<input
 						type="submit"
-						value="Submit"
+						value="Place"
 						onSubmit={e => this.handleSubmit(e, handlePlace)}
 					/>
 				</form>
