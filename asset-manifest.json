@@ -1,13 +1,13 @@
 {
   "main.css": "/robot-app/static/css/main.1678ebd0.chunk.css",
-  "main.js": "/robot-app/static/js/main.257777df.chunk.js",
-  "main.js.map": "/robot-app/static/js/main.257777df.chunk.js.map",
+  "main.js": "/robot-app/static/js/main.1484287b.chunk.js",
+  "main.js.map": "/robot-app/static/js/main.1484287b.chunk.js.map",
   "runtime~main.js": "/robot-app/static/js/runtime~main.d1174ebd.js",
   "runtime~main.js.map": "/robot-app/static/js/runtime~main.d1174ebd.js.map",
-  "static/js/2.e1cb1b85.chunk.js": "/robot-app/static/js/2.e1cb1b85.chunk.js",
-  "static/js/2.e1cb1b85.chunk.js.map": "/robot-app/static/js/2.e1cb1b85.chunk.js.map",
+  "static/js/2.c0548a06.chunk.js": "/robot-app/static/js/2.c0548a06.chunk.js",
+  "static/js/2.c0548a06.chunk.js.map": "/robot-app/static/js/2.c0548a06.chunk.js.map",
   "index.html": "/robot-app/index.html",
-  "precache-manifest.7c7f109915a33b4730beaef4ddb8c3ac.js": "/robot-app/precache-manifest.7c7f109915a33b4730beaef4ddb8c3ac.js",
+  "precache-manifest.9006f4fdd31a4d7af40b413ba85c867e.js": "/robot-app/precache-manifest.9006f4fdd31a4d7af40b413ba85c867e.js",
   "service-worker.js": "/robot-app/service-worker.js",
   "static/css/main.1678ebd0.chunk.css.map": "/robot-app/static/css/main.1678ebd0.chunk.css.map",
   "static/media/robot.png": "/robot-app/static/media/robot.cbf7e6de.png"
