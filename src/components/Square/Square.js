@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styles from './SquareStyles';
 
-class Square extends Component {
-	render() {
-		return <div style={styles.square}>{this.props.children}</div>;
-	}
-}
+const Square = props => {
+	return <div style={styles.square}>{props.children}</div>;
+};
 
 export default Square;

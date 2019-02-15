@@ -6,13 +6,11 @@ import styles from './AppStyles';
 const tableHeight = 5;
 const tableWidth = 5;
 
-const tableArray = [...Array(tableHeight)].map(e => Array(tableWidth).fill(''));
-
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			table: tableArray,
+			table: [...Array(tableHeight)].map(e => Array(tableWidth).fill('')),
 			robot: { x: null, y: null, direction: null },
 		};
 		this.handleChangeLeft = this.handleChangeLeft.bind(this);
@@ -22,70 +20,93 @@ class App extends Component {
 		this.handleReport = this.handleReport.bind(this);
 	}
 
-	handlePlace(x, y, directionString) {
-		let degrees, checkedX, checkedY;
-		if (directionString === 'NORTH') {
-			degrees = 180;
-		} else if (directionString === 'SOUTH') {
-			degrees = 0;
-		} else if (directionString === 'EAST') {
-			degrees = 270;
-		} else if (directionString === 'WEST') {
-			degrees = 90;
-		}
-		if (x < 0 || x > tableHeight - 1) {
+	handlePlace(x, y, direction) {
+		let checkedX, checkedY, directionString;
+
+		if (x < 0 || x > tableHeight - 1 || y < 0 || y > tableHeight - 1) {
 			checkedX = null;
+			checkedY = null;
+			directionString = null;
 		} else {
 			checkedX = x;
-		}
-		if (y < 0 || y > tableHeight - 1) {
-			checkedY = null;
-		} else {
 			checkedY = y;
+			directionString = direction;
 		}
 		this.setState({
 			robot: {
 				x: checkedX,
 				y: checkedY,
-				direction: degrees,
+				direction: directionString,
 			},
 		});
 	}
 	handleChangeLeft(e) {
+		let newDirection;
+		switch (this.state.robot.direction) {
+			case 'NORTH':
+				newDirection = 'WEST';
+				break;
+			case 'SOUTH':
+				newDirection = 'EAST';
+				break;
+			case 'EAST':
+				newDirection = 'NORTH';
+				break;
+			case 'WEST':
+				newDirection = 'SOUTH';
+				break;
+			default:
+				break;
+		}
 		this.setState({
 			robot: {
 				...this.state.robot,
-				direction: this.state.robot.direction - 90,
+				direction: newDirection,
 			},
 		});
 	}
 	handleChangeRight(e) {
+		let newDirection;
+		switch (this.state.robot.direction) {
+			case 'NORTH':
+				newDirection = 'EAST';
+				break;
+			case 'SOUTH':
+				newDirection = 'WEST';
+				break;
+			case 'EAST':
+				newDirection = 'SOUTH';
+				break;
+			case 'WEST':
+				newDirection = 'NORTH';
+				break;
+			default:
+				break;
+		}
 		this.setState({
 			robot: {
 				...this.state.robot,
-				direction: this.state.robot.direction + 90,
+				direction: newDirection,
 			},
 		});
 	}
 	handleMove(e) {
 		let move = { x: 0, y: 0 };
-		if (this.state.robot.direction % 360 === 0) {
-			move.y = -1;
-		} else if (
-			this.state.robot.direction % 360 === 270 ||
-			this.state.robot.direction % 360 === -90
-		) {
-			move.x = 1;
-		} else if (
-			this.state.robot.direction % 360 === 180 ||
-			this.state.robot.direction % 360 === -180
-		) {
-			move.y = 1;
-		} else if (
-			this.state.robot.direction % 360 === 90 ||
-			this.state.robot.direction % 360 === -270
-		) {
-			move.x = -1;
+		switch (this.state.robot.direction) {
+			case 'NORTH':
+				move.y = 1;
+				break;
+			case 'SOUTH':
+				move.y = -1;
+				break;
+			case 'EAST':
+				move.x = 1;
+				break;
+			case 'WEST':
+				move.x = -1;
+				break;
+			default:
+				break;
 		}
 		if (
 			this.state.robot.x + move.x < 0 ||
@@ -104,27 +125,8 @@ class App extends Component {
 		});
 	}
 	handleReport() {
-		const { x, y } = this.state.robot;
-		let directionString;
-		if (this.state.robot.direction % 360 === 0) {
-			directionString = 'SOUTH';
-		} else if (
-			this.state.robot.direction % 360 === 270 ||
-			this.state.robot.direction % 360 === -90
-		) {
-			directionString = 'EAST';
-		} else if (
-			this.state.robot.direction % 360 === 180 ||
-			this.state.robot.direction % 360 === -180
-		) {
-			directionString = 'NORTH';
-		} else if (
-			this.state.robot.direction % 360 === 90 ||
-			this.state.robot.direction % 360 === -270
-		) {
-			directionString = 'WEST';
-		}
-		alert(`X is ${x}, Y is ${y}, Direction is ${directionString}`);
+		const { x, y, direction } = this.state.robot;
+		alert(`X is ${x}, Y is ${y}, Direction is ${direction}`);
 	}
 	render() {
 		const { table, robot } = this.state;
