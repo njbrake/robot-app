@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Row from './components/Row/Row';
 import Controls from './components/Controls/Controls';
 import styles from './AppStyles';
+
 const tableHeight = 5;
 const tableWidth = 5;
 

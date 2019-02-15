@@ -2,8 +2,8 @@ const styles = {
 	square: {
 		borderStyle: 'solid',
 		borderColor: 'black',
-		height: '100px',
-		width: '100px',
+		height: '50px',
+		width: '50px',
 	},
 };
 export default styles;
