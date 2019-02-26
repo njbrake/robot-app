@@ -91,25 +91,30 @@ class App extends Component {
 		});
 	}
 	handleMove(e) {
-		let move = { x: 0, y: 0 };
+		let move = { x: null, y: null };
 		switch (this.state.robot.direction) {
 			case 'NORTH':
+				move.x = 0;
 				move.y = 1;
 				break;
 			case 'SOUTH':
 				move.y = -1;
+				move.x = 0;
 				break;
 			case 'EAST':
 				move.x = 1;
+				move.y = 0;
 				break;
 			case 'WEST':
 				move.x = -1;
+				move.y = 0;
 				break;
 			default:
 				break;
 		}
 		if (
 			this.state.robot.x + move.x < 0 ||
+			this.state.robot.x === null ||
 			this.state.robot.y + move.y < 0 ||
 			this.state.robot.x + move.x > tableWidth - 1 ||
 			this.state.robot.y + move.y > tableHeight - 1
