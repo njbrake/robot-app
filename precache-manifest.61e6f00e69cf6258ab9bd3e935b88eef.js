@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/robot-app/static/js/runtime~main.d1174ebd.js"
   },
   {
-    "revision": "c9c81da0e3541b096e21",
-    "url": "/robot-app/static/js/main.c9c81da0.chunk.js"
+    "revision": "82a538fcb9f5e198a778",
+    "url": "/robot-app/static/js/main.82a538fc.chunk.js"
   },
   {
     "revision": "c0548a06023ba0305a11",
     "url": "/robot-app/static/js/2.c0548a06.chunk.js"
   },
   {
-    "revision": "c9c81da0e3541b096e21",
+    "revision": "82a538fcb9f5e198a778",
     "url": "/robot-app/static/css/main.1678ebd0.chunk.css"
   },
   {
-    "revision": "15d65fa1b7af13888447356f959e9715",
+    "revision": "14b6ca57c3b9ee2a6d2be3088058b048",
     "url": "/robot-app/index.html"
   }
 ];
